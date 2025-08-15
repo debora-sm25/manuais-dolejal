@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Distribuição Inicial de Rescisão Contratual - Gramado/RS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #000000;
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 30px;
+        }
+        .logo { height: 48px; width: auto; }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #dddddd;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .step-container {
+            background: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-header {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            flex: 1;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .step-content {
+            padding: 25px 30px;
+            display: block; /* ALTERADO: agora os passos são sempre visíveis */
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-description {
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            margin: 25px auto;
+            display: block;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .step-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Layout responsivo para imagens */
+        @media (max-width: 768px) {
+            .step-image {
+                max-width: 100%;
+                margin: 20px auto;
+            }
+            
+            .step-content {
+                padding: 20px 25px;
+            }
+            
+            .step-container {
+                margin-bottom: 18px;
+            }
+        }
+
+        /* Melhorar proporção dos elementos */
+        .step-content > *:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        .step-content > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #111111;
+            padding: 18px 20px;
+            border-radius: 12px;
+            margin: 18px 0;
+            box-shadow: 0 6px 16px rgba(184, 134, 11, 0.25);
+        }
+
+        .highlight-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .document-list {
+            background: #f8f8f8;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 18px 0;
+            border-left: 5px solid #000000;
+        }
+
+        .document-list h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .document-list ol {
+            padding-left: 20px;
+        }
+
+        .document-list li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-button:hover { transform: translateY(-1px); background: #111111; }
+
+        .site-footer {
+            text-align: center;
+            background: #000000;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .step-header {
+                padding: 15px 20px;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+            }
+
+            .step-content {
+                padding: 20px;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .step-header {
+                padding: 12px 15px;
+            }
+
+            .step-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+                            <img src="../assets/logo dolejal.png" alt="Dolejal" class="logo">
+            <div>
+                <h1>Manual de Distribuição Inicial</h1>
+                <p>Rescisão Contratual de Gramado/RS - Guia completo para o processo no EPROC</p>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Acessar o EPROC</div>
+            </div>
+            <div class="step-content" id="step1">
+                <div class="step-description">
+                    Primeiro passo é acessar o sistema EPROC do Tribunal de Justiça do Rio Grande do Sul.
+                </div>
+                <a href="https://eproc1g.tjrs.jus.br/eproc/externo_controlador.php?acao=principal" 
+                   target="_blank" class="link-button">Acessar EPROC</a>
+                <p style="margin-top: 15px; color: #7f8c8d;">
+                    Realize o login com seu usuário e senha do EPROC.
+                </p>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Iniciar Petição Inicial</div>
+            </div>
+            <div class="step-content" id="step2">
+                <div class="step-description">
+                    No menu principal, navegue até a opção de petição inicial para consultar processos.
+                </div>
+                <div class="highlight-box">
+                    <h4>Navegação:</h4>
+                    <p>Menu → "petição inicial" → consultar processos</p>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Preencher Informações Preliminares</div>
+            </div>
+            <div class="step-content" id="step3">
+                <div class="step-description">
+                    Preencha todos os campos obrigatórios com as informações do processo.
+                </div>
+                <div class="document-list">
+                    <h4>Campos a preencher:</h4>
+                    <ul>
+                        <li>Foro competente</li>
+                        <li>Rito</li>
+                        <li>Área</li>
+                        <li>Procedimento</li>
+                        <li>Sem sigilo</li>
+                        <li>Valor da causa</li>
+                    </ul>
+                </div>
+                <img src="../assets/Manual de distribuicao.fld/image005.png" alt="Formulário de Informações Preliminares" class="step-image">
+
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Selecionar Assuntos</div>
+            </div>
+            <div class="step-content" id="step4">
+                <div class="step-description">
+                    Selecione os assuntos jurídicos relacionados ao caso de rescisão contratual.
+                </div>
+                <div class="highlight-box">
+                    <h4>Assuntos a selecionar:</h4>
+                    <p><strong>1.</strong> DIREITO CIVIL → COISAS → PROMESSA DE COMPRA E VENDA (clique em INCLUIR)</p>
+                    <p><strong>2.</strong> DIREITO DO CONSUMIDOR → RESPONSABILIDADE DO FORNECEDOR → RESCISÃO DO CONTRATO E DEVOLUÇÃO DO DINHEIRO (clique em INCLUIR)</p>
+                </div>
+                <img src="../assets/Manual de distribuicao.fld/image006.png" alt="Seleção de Assuntos Jurídicos" class="step-image">
+
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Cadastrar Autor</div>
+            </div>
+            <div class="step-content" id="step5">
+                <div class="step-description">
+                    Cadastre as informações pessoais do autor da ação.
+                </div>
+                <div class="document-list">
+                    <h4>Procedimento:</h4>
+                    <ol>
+                        <li>Clique em 'próxima' e preencha o CPF do autor</li>
+                        <li>Consulte e preencha: sexo, estado civil, profissão</li>
+                        <li>INCLUA o endereço</li>
+                        <li>Clique em SALVAR</li>
+                        <li>INCLUA como PRINCIPAL</li>
+                        <li>SELECIONE se há pedido de gratuidade da justiça</li>
+                    </ol>
+                </div>
+                <img src="../assets/Manual de distribuicao.fld/image007.png" alt="Cadastro de Pessoa Física" class="step-image">
+            </div>
+            <img src="../assets/Manual de distribuicao.fld/image009.png" alt="Cadastro de Pessoa Física" class="step-image">
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Cadastrar Réu</div>
+            </div>
+            <div class="step-content" id="step6">
+                <div class="step-description">
+                    Cadastre as informações da empresa ou pessoa jurídica ré.
+                </div>
+                <div class="highlight-box">
+                    <h4>Procedimento:</h4>
+                    <p>Cadastre o RÉU pelo CNPJ → CONSULTE e INCLUA → PRÓXIMA</p>
+                </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Selecionar Opções Adicionais</div>
+            </div>
+            <div class="step-content" id="step7">
+                <div class="step-description">
+                    Configure as opções específicas do processo.
+                </div>
+                <div class="document-list">
+                    <h4>Opções a selecionar:</h4>
+                    <ul>
+                        <li>✓ REQUER LIMINAR</li>
+                        <li>✓ OPÇÃO JUIZO 100% DIGITAL</li>
+                        <li>✓ NÃO TENHO INTERESSE EM CONCILIAR</li>
+                    </ul>
+                </div>
+                <img src="../assets/Manual de distribuicao.fld/image010.png" alt="Opções Adicionais do Processo" class="step-image">
+
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <div class="step-title">Anexar Documentos</div>
+            </div>
+            <div class="step-content" id="step8">
+                <div class="step-description">
+                    Anexe todos os documentos necessários na ordem correta e nomeie-os adequadamente.
+                </div>
+                <div class="highlight-box">
+                    <h4>⚠️ Importante:</h4>
+                    <p>Caso o arquivo seja grande demais (+10mb), reduza o tamanho no site 
+                    <a href="https://www.ilovepdf.com/compress_pdf" target="_blank" style="color: white; text-decoration: underline;">ILOVEPDF (compress PDF)</a></p>
+                </div>
+                <div class="document-list">
+                    <h4>Documentos Necessários (em ordem):</h4>
+                    <ol>
+                        <li>Petição inicial</li>
+                        <li>Identidade</li>
+                        <li>Comprovante residência</li>
+                        <li>DECLARAÇÃO IRPF (quando tiver pedido de AJG)</li>
+                        <li>Procuração</li>
+                        <li>Contrato do imóvel</li>
+                        <li>Matrícula</li>
+                        <li><strong>OUTROS DOCS. RELEVANTES, EXEMPLO:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li>OUTROS – INFORMACAO DA ACP DO MP POR PROPAGANDA ENGANOSA</li>
+                                <li>OUTROS – INICIAL DA ACP DO MP POR PROPAGANDA ENGANOSA</li>
+                                <li>OUTROS – PROMOCAO DO MP NA ACP POR PROPAGANDA ENGANOSA</li>
+                                <li>JURISPRUDENCIAS, CERTIDÕES AFETAÇÃO, ETC</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">9</div>
+                <div class="step-title">Confirmar e Finalizar</div>
+            </div>
+            <div class="step-content" id="step9">
+                <div class="step-description">
+                    Última etapa: revisar todas as informações e confirmar o ajuizamento.
+                </div>
+                <div class="document-list">
+                    <h4>Passos finais:</h4>
+                    <ol>
+                        <li>CONFIRME a seleção dos documentos</li>
+                        <li>Pode colocar em sigilo algum documento se necessário</li>
+                        <li>FINALIZE</li>
+                        <li>REVISE todos os dados</li>
+                        <li>Clique em CONFIRMAR AJUIZAMENTO</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">10</div>
+                <div class="step-title">Peticionamento Eletrônico</div>
+            </div>
+            <div class="step-content" id="step10">
+                <div class="step-description">
+                    Confirmação final do ajuizamento do processo.
+                </div>
+                <div class="highlight-box">
+                    <h4>Resumo das Informações:</h4>
+                    <p>Revisar todos os dados e confirmar o ajuizamento.</p>
+                </div>
+                <img src="../assets/Manual de distribuicao.fld/image011.png" alt="Peticionamento Eletrônico" class="step-image">
+            </div>
+        </div>
+    </div>
+    <div class="site-footer">Dolejal 2025 todos os direitos reservados</div>
+
+    <script>
+        // Fallback para imagens quebradas
+        document.addEventListener('error', function(e) {
+            const el = e.target;
+            if (el.tagName === 'IMG' && !el.dataset.fallbackApplied) {
+                el.dataset.fallbackApplied = 'true';
+                el.src = '../assets/placeholder.svg';
+            }
+        }, true);
+
+        // Adicionar efeito de hover nas imagens para zoom
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.step-image');
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    if (this.style.transform === 'scale(1.5)') {
+                        this.style.transform = 'scale(1)';
+                        this.style.position = 'relative';
+                        this.style.zIndex = '1';
+                    } else {
+                        this.style.transform = 'scale(1.5)';
+                        this.style.position = 'relative';
+                        this.style.zIndex = '1000';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

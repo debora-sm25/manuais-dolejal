@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Cálculo de Custas - EPROC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .logo { height: 48px; width: auto; }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .header p {
+            color: #ffffff;
+            font-size: 1.2rem;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        .step-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-content {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .sub-steps {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .sub-step {
+            background: #f8f8f8;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #000000;
+            border-radius: 8px;
+        }
+
+        .sub-step strong {
+            color: #2c3e50;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+
+
+        .step-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step-image:hover { transform: scale(1.02); }
+
+        .important-note {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #111111;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.25);
+        }
+
+        .important-note h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .footer {
+            text-align: center;
+            background: #000000;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .step-card {
+                padding: 20px;
+            }
+
+            .step-title {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .step-number {
+                margin-bottom: 10px;
+            }
+
+            .link-button {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .step-content {
+                font-size: 1rem;
+            }
+
+            .sub-steps {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../assets/logo dolejal.png" alt="Dolejal" class="logo">
+            <div>
+                <h1 style="margin:0; font-size:1.8rem;">Manual de Cálculo de Custas</h1>
+                <p style="margin:4px 0 0 0; color:#ddd;">Guia completo para cálculo de custas no EPROC</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">1</span>
+                Acesso ao EPROC
+            </div>
+            <div class="step-content">
+                <p>Acesse o sistema EPROC através do link oficial:</p>
+                <a href="https://eproc1g.tjrs.jus.br/eproc/externo_controlador.php?acao=principal" class="link-button" target="_blank">
+                    🔗 Acessar EPROC
+                </a>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">2</span>
+                Login no Sistema
+            </div>
+            <div class="step-content">
+                <p>Faça login utilizando suas credenciais do EPROC (login e senha).</p>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_1.png" alt="Tela de Login do EPROC" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">3</span>
+                Consulta Processual
+            </div>
+            <div class="step-content">
+                <p>Navegue até <strong>"Consulta Processual"</strong> → <strong>"Consultar Processos"</strong></p>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_2.png" alt="Menu Consulta Processual" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">4</span>
+                Tipos de Pesquisa
+            </div>
+            <div class="step-content">
+                <p>Em <strong>"Tipo de Pesquisa"</strong>, você pode procurar por:</p>
+                <div class="sub-steps">
+                    <div class="sub-step">
+                        <strong>NOME:</strong> Pesquisar pelo nome das partes
+                    </div>
+                    <div class="sub-step">
+                        <strong>CPF/CNPJ:</strong> Pesquisar por documento
+                    </div>
+                    <div class="sub-step">
+                        <strong>Nº do Processo:</strong> Pesquisar pelo número do processo
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_3.png" alt="Formulário de Consulta Processual" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">5</span>
+                Acessar Aba Custas
+            </div>
+            <div class="step-content">
+                <p>Após encontrar o processo, clique na aba <strong>"Custas"</strong></p>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_4.png" alt="Tipos de Pesquisa" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">6</span>
+                Nova Guia de Custas
+            </div>
+            <div class="step-content">
+                <p>Caso não tenha guia de custas aparecendo, clique em <strong>"Nova Guia"</strong></p>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_5.png" alt="Botão Nova Guia" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">7</span>
+                Tipos de Pagamento
+            </div>
+            <div class="step-content">
+                <p>Selecione o tipo de pagamento adequado:</p>
+                <div class="sub-steps">
+                    <div class="sub-step">
+                        <strong>a) Custas Iniciais:</strong> Para início do processo de conhecimento
+                    </div>
+                    <div class="sub-step">
+                        <strong>b) Preparo de Recurso:</strong> Se o processo já tiver sentença e for apelar
+                    </div>
+                    <div class="sub-step">
+                        <strong>c) Recolhimento de Condução:</strong> Para citação/intimação por oficial de justiça
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_6.png" alt="Tipos de Pagamento" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">8</span>
+                Custas Iniciais
+            </div>
+            <div class="step-content">
+                <p>Para custas iniciais:</p>
+                <div class="sub-steps">
+                    <div class="sub-step">
+                        Selecione e clique em <strong>'Calcular'</strong>
+                    </div>
+                    <div class="sub-step">
+                        Coloque <strong>1</strong> na 'caixa' de <strong>AR DIGITAL</strong>
+                    </div>
+                    <div class="sub-step">
+                        Selecione o <strong>pagante</strong> (quem representamos)
+                    </div>
+                    <div class="sub-step">
+                        Clique em <strong>'Gerar'</strong> e <strong>'OK'</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">9</span>
+                Emissão de Segunda Via
+            </div>
+            <div class="step-content">
+                <p>Se a guia já estiver gerada:</p>
+                <div class="sub-steps">
+                    <div class="sub-step">
+                        <strong>Guia 'em aberto':</strong> Clique no ícone da impressora para emitir segunda via e salvar em PDF
+                    </div>
+                    <div class="sub-step">
+                        <strong>Guia vencida:</strong> Clique no ícone de 'atualizar'
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_7.png" alt="Tabela de Parcelas" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">10</span>
+                Guia Parcelada
+            </div>
+            <div class="step-content">
+                <p>Se a guia for <strong>'parcelada'</strong>, clique no ícone <strong>'visualizar parcelas'</strong> e imprimir/atualizar se necessário.</p>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_8.png" alt="Parcelas do Processo" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">11</span>
+                Contato com Balcão Virtual
+            </div>
+            <div class="step-content">
+                <p>Quando a juíza autorizar o parcelamento, mas a guia ainda não estiver gerada na forma parcelada:</p>
+                <div class="sub-steps">
+                    <div class="sub-step">
+                        Verificar qual o juízo e telefone do balcão virtual
+                    </div>
+                    <div class="sub-step">
+                        Fazer contato via WhatsApp solicitando urgência
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_9.png" alt="Informações do Processo" class="step-image">
+                </div>
+                <a href="https://www.tjrs.jus.br/novo/processos-e-servicos/servicos-processuais/balcao-virtual/" class="link-button" target="_blank">
+                    📞 Balcão Virtual - Capital
+                </a>
+                <a href="https://www.tjrs.jus.br/novo/processos-e-servicos/servicos-processuais/balcao-virtual/balcao-virtual-do-1-grau-interior/" class="link-button" target="_blank">
+                    📞 Balcão Virtual - Interior
+                </a>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_10.png" alt="Acesso ao Balcão Virtual" class="step-image">
+                </div>
+                <div class="image-container">
+                    <img src="../assets/Manual de custas.fld/image_11.png" alt="Acesso ao Balcão Virtual" class="step-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">12</span>
+                Preparo de Recurso
+            </div>
+            <div class="step-content">
+                <p>Para guia de <strong>preparo de recurso</strong>:</p>
+                <div class="sub-steps">
+                    <div class="sub-step">
+                        Apenas selecionar o pagante e emitir/gerar
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">
+                <span class="step-number">13</span>
+                Recolhimento de Condução
+            </div>
+            <div class="step-content">
+                <p>Para guia de <strong>recolhimento de condução</strong>:</p>
+                <div class="sub-steps">
+                    <div class="sub-step">
+                        Marcar <strong>'1'</strong> na condução necessária:
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>RURAL</li>
+                            <li>URBANA</li>
+                            <li>PRECATÓRIA</li>
+                        </ul>
+                    </div>
+                    <div class="sub-step">
+                        Selecionar o pagante e emitir/gerar
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <h3>⚠️ Importante</h3>
+            <p>Sempre verifique se os dados estão corretos antes de gerar a guia de custas. Em caso de dúvidas, entre em contato com o balcão virtual do respectivo juízo.</p>
+        </div>
+
+        <div class="footer">
+            <p>Dolejal 2025 todos os direitos reservados</p>
+        </div>
+    </div>
+
+    <script>
+        // Fallback para imagens quebradas
+        document.addEventListener('error', function(e) {
+            const el = e.target;
+            if (el.tagName === 'IMG' && !el.dataset.fallbackApplied) {
+                el.dataset.fallbackApplied = 'true';
+                el.src = '../assets/placeholder.svg';
+            }
+        }, true);
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initially hide cards and observe them
+        document.querySelectorAll('.step-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add click effect to buttons
+        document.querySelectorAll('.link-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Pastas e Documentos - Dolejal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .header-title h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .step {
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .step-content {
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .substep {
+            margin: 1rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid #000000;
+        }
+
+        .substep-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #000000;
+        }
+
+        .substep-content {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .document-list {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .document-list ol {
+            padding-left: 1.5rem;
+        }
+
+        .document-list li {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .highlight {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-left: 4px solid #000000;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .external-link {
+            color: #000000;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .external-link:hover {
+            color: #555;
+        }
+
+        .example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                margin: 1rem 0 0 0;
+            }
+
+            .header-title h1 {
+                font-size: 1.4rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .step-header {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .step-content {
+                padding: 1rem;
+            }
+
+            .substep {
+                padding-left: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title h1 {
+                font-size: 1.2rem;
+            }
+
+            .step-header {
+                font-size: 1rem;
+            }
+
+            .step-number {
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, footer {
+                background-color: #000000 !important;
+                color: #ffffff !important;
+            }
+
+            .step {
+                break-inside: avoid;
+                margin-bottom: 1rem;
+            }
+
+            .external-link {
+                color: #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="assets/logo.png" alt="Dolejal Logo" class="logo">
+                <div class="header-title">
+                    <h1>Manual de Pastas e Documentos</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    Criar a pasta do cliente
+                </div>
+                <div class="step-content">
+                    <p>Crie a pasta com o <strong>'NOME'</strong> do cliente + nome do empreendimento (se Laghetto, Buona Vitta, Termas, Etc) + tipo de ação (se for execução/monitória/rescisão).</p>
+                    
+                    <div class="substep">
+                        <div class="substep-title">a) Execução</div>
+                        <div class="substep-content">
+                            Se o termo de distrato for assinatura física, tem que ter duas testemunhas e firma reconhecida; se for assinatura eletrônica não há necessidade (art. 784, §4° do CPC).
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <div class="substep-title">b) Monitória</div>
+                        <div class="substep-content">
+                            Se o termo de distrato não estiver assinado, mas tiver prova por escrito de que o contrato foi rescindido e ter o valor exato do crédito a receber.
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <div class="substep-title">c) Rescisão</div>
+                        <div class="substep-content">
+                            Quando ainda não tiver realizado o distrato.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    Verificar e organizar documentos básicos
+                </div>
+                <div class="step-content">
+                    <p>Verifique se os documentos básicos estão reunidos na pasta e coloque-os na seguinte ordem:</p>
+                    
+                    <div class="document-list">
+                        <ol type="a">
+                            <li>Identidade</li>
+                            <li>Comprovante de residência</li>
+                            <li>Declaração de imposto de renda se pedir AJG (justiça gratuita)</li>
+                            <li>Procuração assinada e contrato de honorários (salvar o arquivo em Word também)</li>
+                            <li>Contrato do imóvel ou termo de distrato assinados ou provas da rescisão/crédito a receber</li>
+                            <li>Extrato de pagamentos</li>
+                            <li>Outros documentos se for o caso (e-mails, aditivos, etc)</li>
+                        </ol>
+                    </div>
+
+                    <div class="highlight">
+                        <strong>Importante:</strong> Se possível, sempre ter um arquivo "relatório" com um breve resumo do caso, com o tipo de ação, se o contrato está quitado, se há inadimplências, aditivos, entre outras particularidades de cada caso concreto.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    Verificar o contrato ou termo de distrato
+                </div>
+                <div class="step-content">
+                    <p>Verifique se o contrato ou termo de distrato está com todas as páginas. <strong>Não confundir</strong> "proposta de compra e venda" com o "contrato de promessa de compra e venda". Em contratos novos, verificar se veio o "quadro resumo" e as "normas gerais".</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <span class="step-number">4</span>
+                    Organizar e converter arquivos
+                </div>
+                <div class="step-content">
+                    <p>Se o contrato vier em diversas páginas separadas (fotos JPG), verifique se tem como colocá-las em ordem (basta seguir o número da folha ou a ordem das cláusulas), depois acesse o site <a href="https://www.ilovepdf.com/jpg_to_pdf" class="external-link" target="_blank" rel="noopener noreferrer">https://www.ilovepdf.com/jpg_to_pdf</a> e reúna todas as fotos em um único arquivo.</p>
+
+                    <div class="substep">
+                        <div class="substep-title">Para arquivos PDF:</div>
+                        <div class="substep-content">
+                            Use a plataforma <a href="https://www.ilovepdf.com/merge_pdf" class="external-link" target="_blank" rel="noopener noreferrer">https://www.ilovepdf.com/merge_pdf</a>
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <div class="substep-title">Para separar arquivos:</div>
+                        <div class="substep-content">
+                            Se o cliente enviar todos os arquivos em um único PDF, pode usar a plataforma <a href="https://www.ilovepdf.com/split_pdf" class="external-link" target="_blank" rel="noopener noreferrer">https://www.ilovepdf.com/split_pdf</a> para separar/extrair os arquivos.
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <div class="substep-title">Para comprimir arquivos:</div>
+                        <div class="substep-content">
+                            Se o cliente enviar algum arquivo com mais de 10MB, pode usar a plataforma <a href="https://www.ilovepdf.com/compress_pdf" class="external-link" target="_blank" rel="noopener noreferrer">https://www.ilovepdf.com/compress_pdf</a> para reduzir o tamanho do arquivo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <span class="step-number">5</span>
+                    Qualificação em procuração ou contrato de honorários
+                </div>
+                <div class="step-content">
+                    <p>No arquivo WORD da procuração ou do contrato de honorários, se possível, constar a qualificação ao final por extenso:</p>
+                    
+                    <div class="example">
+                        <strong>Exemplo:</strong><br>
+                        SILVIA SILVA OLIVEIRA, brasileira, solteira, enfermeira, inscrita no CPF sob o nº 003.457.845-43, na Rua Eduardo Gonçalves, 24 – Apto 204 - Centro – Salvador/BA, CEP 40140-310
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <span class="step-number">6</span>
+                    Confirmar número da fração
+                </div>
+                <div class="step-content">
+                    <p>Confirmar se o nº da fração que consta no cabeçalho do extrato enviado confere com o contrato enviado.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Dolejal 2025 todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+<script>
+  // Fallback para imagens quebradas
+  document.addEventListener('error', function(e) {
+    const el = e.target;
+    if (el.tagName === 'IMG' && !el.dataset.fallbackApplied) {
+      el.dataset.fallbackApplied = 'true';
+      el.src = 'assets/placeholder.svg';
+    }
+  }, true);
+</script>
+</html>
+

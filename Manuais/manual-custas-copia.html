@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Custas - Dolejal Advocacia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .header-title h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar {
+            background-color: #f0f0f0;
+            height: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #000, #333);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .step {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .step-title {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 1rem;
+            vertical-align: top;
+        }
+
+        .step-content {
+            margin-left: 56px;
+        }
+
+        .step-description {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .step-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .step-image:hover {
+            transform: scale(1.02);
+        }
+
+        .substeps {
+            background-color: #f9f9f9;
+            border-left: 4px solid #000;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .substeps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .substeps li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .substeps li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #000;
+            font-size: 0.8rem;
+        }
+
+        .link {
+            color: #000;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .link:hover {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .important-note {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-left: 4px solid #000;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .important-note strong {
+            color: #000;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background-color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                margin: 1rem 0;
+            }
+
+            .header-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .step {
+                padding: 1.5rem;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 1rem;
+            }
+
+            .step-title {
+                font-size: 1.3rem;
+                display: block;
+                margin-top: 0.5rem;
+            }
+
+            .step-content {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .step {
+                padding: 1rem;
+            }
+
+            .header-title h1 {
+                font-size: 1.2rem;
+            }
+
+            .step-title {
+                font-size: 1.2rem;
+            }
+
+            .step-description {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation for step appearance */
+        .step {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+        .step:nth-child(5) { animation-delay: 0.5s; }
+        .step:nth-child(6) { animation-delay: 0.6s; }
+        .step:nth-child(7) { animation-delay: 0.7s; }
+        .step:nth-child(8) { animation-delay: 0.8s; }
+        .step:nth-child(9) { animation-delay: 0.9s; }
+        .step:nth-child(10) { animation-delay: 1.0s; }
+        .step:nth-child(11) { animation-delay: 1.1s; }
+        .step:nth-child(12) { animation-delay: 1.2s; }
+        .step:nth-child(13) { animation-delay: 1.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="dolejal_logo.png" alt="Dolejal Advocacia" class="logo">
+                <div class="header-title">
+                    <h1>Manual de Custas</h1>
+                </div>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="step">
+                <span class="step-number">1</span>
+                <h2 class="step-title">Acesso ao EPROC</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Acesse o sistema EPROC através do link oficial do Tribunal de Justiça do Rio Grande do Sul.
+                    </p>
+                    <div class="important-note">
+                        <strong>Link do EPROC:</strong> 
+                        <a href="https://eproc1g.tjrs.jus.br/eproc/externo_controlador.php?acao=principal" class="link" target="_blank">
+                            https://eproc1g.tjrs.jus.br/eproc/externo_controlador.php?acao=principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <h2 class="step-title">Login e Senha</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Utilize seu login e senha do EPROC para acessar o sistema. Insira suas credenciais nos campos apropriados.
+                    </p>
+                    <img src="image_1.png" alt="Tela de Login do EPROC" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <h2 class="step-title">Consulta Processual</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Após fazer login, navegue até "Consulta Processual" no menu lateral e selecione "consultar processos".
+                    </p>
+                    <img src="image_2.png" alt="Menu Consulta Processual" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <h2 class="step-title">Tipo de Pesquisa</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Em "tipo de pesquisa", você pode procurar por diferentes critérios:
+                    </p>
+                    <div class="substeps">
+                        <ul>
+                            <li>NOME da parte</li>
+                            <li>CPF/CNPJ</li>
+                            <li>Número do processo</li>
+                            <li>OAB</li>
+                            <li>Originário / Relacionado</li>
+                        </ul>
+                    </div>
+                    <img src="image_3.png" alt="Opções de Tipo de Pesquisa" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <h2 class="step-title">Aba Custas</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Após encontrar o processo desejado, clique na aba "Custas" para acessar as informações de pagamento.
+                    </p>
+                    <img src="image_4.png" alt="Aba Custas no processo" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <h2 class="step-title">Nova Guia (se necessário)</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Caso não haja guia de custas aparecendo na tela, clique em "nova guia" para gerar uma nova guia de pagamento.
+                    </p>
+                    <img src="image_5.png" alt="Botão Nova Guia" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">7</span>
+                <h2 class="step-title">Selecionar Tipo de Pagamento</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Selecione o tipo de pagamento adequado conforme a situação do processo:
+                    </p>
+                    <div class="substeps">
+                        <ul>
+                            <li><strong>Custas iniciais:</strong> quando estiver no início do processo de conhecimento</li>
+                            <li><strong>Preparo de recurso:</strong> se o processo já tiver sentença e for apelar</li>
+                            <li><strong>Recolhimento de condução:</strong> se for para citação/intimação por oficial de justiça</li>
+                        </ul>
+                    </div>
+                    <img src="image_6.png" alt="Tipos de Pagamento disponíveis" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">8</span>
+                <h2 class="step-title">Cálculo e Geração (Custas Iniciais)</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Para custas iniciais, siga este procedimento:
+                    </p>
+                    <div class="substeps">
+                        <ul>
+                            <li>Selecione "Custas Iniciais" e clique em "calcular"</li>
+                            <li>Coloque "1" na "caixa" de AR DIGITAL</li>
+                            <li>Selecione o pagante (quem representamos)</li>
+                            <li>Clique em "gerar" e depois "ok"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">9</span>
+                <h2 class="step-title">Emissão de Segunda Via ou Atualização</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Dependendo do status da guia, proceda da seguinte forma:
+                    </p>
+                    <div class="substeps">
+                        <ul>
+                            <li><strong>Guia "em aberto":</strong> clique no ícone da impressora para emitir segunda via e salvar em PDF</li>
+                            <li><strong>Guia "vencida":</strong> clique no ícone de "atualizar"</li>
+                        </ul>
+                    </div>
+                    <img src="image_7.png" alt="Guia em aberto com opções de ação" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">10</span>
+                <h2 class="step-title">Guia Parcelada</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Se a guia for "parcelada", clique no ícone "visualizar parcelas" e imprima/atualize se necessário.
+                    </p>
+                    <img src="image_8.png" alt="Guia parcelada" class="step-image">
+                    <img src="image_9.png" alt="Detalhes das parcelas" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">11</span>
+                <h2 class="step-title">Parcelamento Autorizado pela Juíza</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Quando a juíza autorizar o parcelamento, mas a guia ainda não estiver gerada na forma parcelada:
+                    </p>
+                    <div class="substeps">
+                        <ul>
+                            <li>Verifique qual o juízo responsável pelo processo</li>
+                            <li>Consulte o telefone do balcão virtual</li>
+                            <li>Faça contato via WhatsApp solicitando urgência</li>
+                        </ul>
+                    </div>
+                    <img src="image_10.png" alt="Informações do processo para contato" class="step-image">
+                    
+                    <div class="important-note">
+                        <strong>Links úteis:</strong><br>
+                        <a href="https://www.tjrs.jus.br/novo/processos-e-servicos/servicos-processuais/balcao-virtual/" class="link" target="_blank">
+                            Telefone do balcão virtual
+                        </a><br>
+                        <a href="https://www.tjrs.jus.br/novo/processos-e-servicos/servicos-processuais/balcao-virtual/balcao-virtual-do-1-grau-interior/" class="link" target="_blank">
+                            Balcão virtual do 1º grau interior
+                        </a>
+                    </div>
+                    
+                    <img src="image_11.png" alt="Acesso ao Balcão Virtual" class="step-image">
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">12</span>
+                <h2 class="step-title">Guia de Preparo de Recurso</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Para guia de preparo de recurso, o processo é mais simples:
+                    </p>
+                    <div class="substeps">
+                        <ul>
+                            <li>Selecione o pagante</li>
+                            <li>Emita/gere a guia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">13</span>
+                <h2 class="step-title">Guia de Recolhimento de Condução</h2>
+                <div class="step-content">
+                    <p class="step-description">
+                        Para guia de recolhimento de condução:
+                    </p>
+                    <div class="substeps">
+                        <ul>
+                            <li>Marque "1" na condução necessária (RURAL, URBANA ou PRECATÓRIA)</li>
+                            <li>Selecione o pagante</li>
+                            <li>Emita/gere a guia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dolejal Advocacia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Progress bar functionality
+        function updateProgressBar() {
+            const steps = document.querySelectorAll('.step');
+            const progressFill = document.getElementById('progressFill');
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrollTop = window.pageYOffset;
+            const progress = (scrollTop / documentHeight) * 100;
+            
+            progressFill.style.width = progress + '%';
+        }
+
+        // Back to top button functionality
+        function toggleBackToTop() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', function() {
+            updateProgressBar();
+            toggleBackToTop();
+        });
+
+        // Initialize progress bar
+        updateProgressBar();
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Image loading optimization
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.step-image');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>
+
