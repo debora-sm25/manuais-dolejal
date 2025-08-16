@@ -26,34 +26,35 @@
             padding: 20px;
         }
 
-        .header {
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 16px;
-            background: #000000;
-            color: #ffffff;
-            padding: 16px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .logo { height: 48px; width: auto; }
-
-        .header h1 {
-            color: #ffffff;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-align: center;
-            flex: 1;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
-        .header p {
-            color: #ffffff;
-            font-size: 1.2rem;
-            text-align: center;
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-title {
             flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .header-title h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .step-card {
@@ -185,17 +186,27 @@
             font-size: 1rem;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                margin: 1rem 0 0 0;
+            }
+
+            .header-title h1 {
+                font-size: 1.4rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
             .container {
-                padding: 15px;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .header p {
-                font-size: 1rem;
+                padding: 0 15px;
             }
 
             .step-card {
@@ -220,8 +231,8 @@
         }
 
         @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.8rem;
+            .header-title h1 {
+                font-size: 1.2rem;
             }
 
             .step-content {
@@ -235,14 +246,18 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="../assets/logo dolejal.png" alt="Dolejal" class="logo">
-            <div>
-                <h1 style="margin:0; font-size:1.8rem;">Manual de Cálculo de Custas</h1>
-                <p style="margin:4px 0 0 0; color:#ddd;">Guia completo para cálculo de custas no EPROC</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../assets/logo dolejal.png" alt="Dolejal" class="logo">
+                <div class="header-title">
+                    <h1>Manual de Cálculo de Custas</h1>
+                </div>
             </div>
         </div>
+    </header>
+
+    <div class="container">
 
         <div class="step-card">
             <div class="step-title">
