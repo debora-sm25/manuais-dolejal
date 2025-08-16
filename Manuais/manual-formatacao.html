@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Formatação - Dolejal Advocacia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .logo { height: 48px; width: auto; }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .header p {
+            color: #ffffff;
+            font-size: 1.2rem;
+            text-align: center;
+            flex: 1;
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-number {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-content {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .sub-sections {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .sub-section {
+            background: #f8f8f8;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #000000;
+            border-radius: 8px;
+        }
+
+        .sub-section strong {
+            color: #2c3e50;
+        }
+
+        .formatting-example {
+            background: #f0f8ff;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .formatting-example h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .formatting-example p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .checklist {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .checklist h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #000000;
+            font-size: 1.2rem;
+        }
+
+        .important-note {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #111111;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.25);
+        }
+
+        .important-note h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .footer {
+            text-align: center;
+            background: #000000;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .section-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../assets/logo.png" alt="Dolejal" class="logo">
+            <div>
+                <h1>Manual de Formatação</h1>
+                <p>Padrões para Peças Processuais</p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">1</span>
+                Introdução
+            </div>
+            <div class="section-content">
+                <p>Este manual estabelece os padrões de formatação que devem ser seguidos em todas as peças processuais do escritório. A padronização visual garante a uniformidade e o profissionalismo dos documentos, facilitando a leitura e compreensão pelos magistrados e demais operadores do direito.</p>
+                <p><strong>Importante:</strong> Todas as peças devem seguir rigorosamente estas regras para manter a identidade visual do escritório e garantir a qualidade dos documentos.</p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">2</span>
+                Configurações Gerais do Documento
+            </div>
+            <div class="section-content">
+                <div class="formatting-example">
+                    <h4>Configurações Padrão</h4>
+                    <p><strong>Fonte:</strong> Times New Roman, tamanho 12</p>
+                    <p><strong>Espaçamento entre linhas:</strong> 1,5</p>
+                    <p><strong>Espaçamento entre parágrafos:</strong> Nenhum espaçamento extra</p>
+                    <p><strong>Margens:</strong> Padrão do Word (2,54 cm em todos os lados)</p>
+                </div>
+                
+                <div class="sub-sections">
+                    <div class="sub-section">
+                        <strong>Espaçamento entre parágrafos:</strong> Não adicionar espaçamento extra antes ou depois dos parágrafos. A transição entre um parágrafo e outro deve ser feita apenas pela nova linha, mantendo o espaçamento de 1,5.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">3</span>
+                Formatação de Citações e Jurisprudências
+            </div>
+            <div class="section-content">
+                <div class="formatting-example">
+                    <h4>Formatação Especial para Citações</h4>
+                    <p><strong>Fonte:</strong> Times New Roman, tamanho 11</p>
+                    <p><strong>Espaçamento entre linhas:</strong> 1,15</p>
+                    <p><strong>Recuo:</strong> 3,5 cm à esquerda</p>
+                    <p><strong>Bordas:</strong> Caixa de texto simples ao redor</p>
+                </div>
+                
+                <div class="sub-sections">
+                    <div class="sub-section">
+                        <strong>Recuo especial:</strong> Aplicar um recuo especial de 3,5 cm à esquerda para destacar a citação do texto principal.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Bordas:</strong> Adicionar uma borda externa simples (caixa de texto) ao redor do bloco da citação/jurisprudência para destacá-la visualmente.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">4</span>
+                Inserção de Imagens (Prints)
+            </div>
+            <div class="section-content">
+                <div class="formatting-example">
+                    <h4>Formatação de Imagens</h4>
+                    <p><strong>Alinhamento:</strong> Centralizado na página</p>
+                    <p><strong>Recuo:</strong> Nenhum recuo aplicado</p>
+                    <p><strong>Bordas:</strong> Borda externa simples e fina</p>
+                    <p><strong>Grifos:</strong> Revisar para clareza e legibilidade</p>
+                </div>
+                
+                <div class="sub-sections">
+                    <div class="sub-section">
+                        <strong>Centralização:</strong> Todas as imagens e prints de tela devem ser centralizados na página, não em relação ao texto.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Recuo:</strong> Remover qualquer tipo de recuo aplicado à imagem. Ela deve estar centralizada em relação às margens da página.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Bordas:</strong> Adicionar uma borda externa simples e fina à imagem para destacá-la do texto.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Grifos e Destaques:</strong> Revisar os grifos feitos na imagem para garantir que estão claros, legíveis e destacam apenas a informação pertinente.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">5</span>
+                Regras de Paginação e Quebra de Página
+            </div>
+            <div class="section-content">
+                <div class="important-note">
+                    <h3>⚠️ Atenção à Paginação</h3>
+                    <p>Problemas de paginação podem comprometer a apresentação profissional da peça. Sempre verifique antes de finalizar.</p>
+                </div>
+                
+                <div class="sub-sections">
+                    <div class="sub-section">
+                        <strong>Títulos Soltos ("Viúvos"):</strong> Nenhum título ou subtítulo pode ficar isolado no final de uma página, sem seu texto correspondente logo abaixo. Utilize o controle de linhas órfãs/viúvas ou insira uma quebra de página manual antes do título, se necessário.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Assinatura:</strong> A assinatura do Dr. Luciano (e demais advogados), incluindo nome e número da OAB, não deve ficar sozinha em uma página. Ela deve estar sempre acompanhada de, no mínimo, o último parágrafo da peça.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">6</span>
+                Verificações Finais
+            </div>
+            <div class="section-content">
+                <div class="checklist">
+                    <h4>Checklist de Revisão</h4>
+                    <ul>
+                        <li>Data da peça atualizada para a data do protocolo</li>
+                        <li>Logo do escritório é a versão mais recente e correta</li>
+                        <li>Formatação de fonte e espaçamento conforme padrão</li>
+                        <li>Citações e jurisprudências com formatação especial</li>
+                        <li>Imagens centralizadas e com bordas</li>
+                        <li>Nenhum título solto no final de página</li>
+                        <li>Assinatura acompanhada de texto</li>
+                        <li>Arquivo salvo em formato .DOCX</li>
+                        <li>Nome do arquivo segue padrão estabelecido</li>
+                    </ul>
+                </div>
+                
+                <div class="sub-sections">
+                    <div class="sub-section">
+                        <strong>Data:</strong> Sempre conferir e atualizar a data da peça para a data do protocolo.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Logo do Escritório:</strong> Verificar se a versão mais recente e correta do logotipo do escritório está sendo utilizada no cabeçalho ou rodapé.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">7</span>
+                Padrão para Nomenclatura de Arquivos
+            </div>
+            <div class="section-content">
+                <div class="formatting-example">
+                    <h4>Regras de Nomenclatura</h4>
+                    <p><strong>Formato:</strong> Obrigatoriamente .DOCX</p>
+                    <p><strong>Caracteres Especiais:</strong> Proibidos (@, §, %, ~, /, \, ?)</p>
+                    <p><strong>Separadores Permitidos:</strong> Ponto (.) e hífen (-)</p>
+                </div>
+                
+                <div class="sub-sections">
+                    <div class="sub-section">
+                        <strong>Formato:</strong> Salvar o arquivo final obrigatoriamente em formato .DOCX.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Caracteres Especiais:</strong> É proibido o uso de caracteres especiais (ex: @, §, %, ~, /, \, ?) no nome do arquivo. Apenas ponto (.) e hífen (-) são permitidos como separadores.
+                    </div>
+                    <div class="sub-section">
+                        <strong>Estrutura do Nome:</strong> O nome do arquivo deve seguir RIGOROSAMENTE o seguinte padrão:<br>
+                        <strong>[Tipo da Peça] - [Nome do Cliente] - [Etiquetas relevantes]</strong>
+                    </div>
+                </div>
+                
+                <div class="formatting-example">
+                    <h4>Exemplos de Nomenclatura</h4>
+                    <p><strong>Exemplo 1:</strong> Contestacao - Joao da Silva - Dano Moral</p>
+                    <p><strong>Exemplo 2:</strong> Apelacao - Empresa XYZ Ltda - Contrato</p>
+                    <p><strong>Exemplo 3:</strong> Recurso.Especial - Maria Oliveira</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span class="section-number">8</span>
+                Resumo das Regras Principais
+            </div>
+            <div class="section-content">
+                <div class="important-note">
+                    <h3>📋 Regras Essenciais</h3>
+                    <p><strong>Fonte:</strong> Times New Roman 12, espaçamento 1,5</p>
+                    <p><strong>Citações:</strong> Times New Roman 11, recuo 3,5 cm, com bordas</p>
+                    <p><strong>Imagens:</strong> Centralizadas, sem recuo, com bordas finas</p>
+                    <p><strong>Paginação:</strong> Evitar títulos soltos e assinaturas isoladas</p>
+                    <p><strong>Arquivo:</strong> .DOCX com nome padronizado</p>
+                </div>
+                
+                <p>Seguir rigorosamente estas regras garante a uniformidade e profissionalismo de todas as peças processuais do escritório, mantendo a identidade visual e facilitando a leitura pelos destinatários.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Dolejal Advocacia - Manual de Formatação</p>
+            <p>Atualizado em 2025 - Todos os direitos reservados</p>
+        </div>
+    </div>
+</body>
+</html>
