@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Agravo - Dolejal Advocacia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .header-title h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .step-container {
+            background: #ffffff;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .step-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-header {
+            background: #000000;
+            color: #ffffff;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            flex: 1;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .step-content {
+            padding: 30px;
+            display: block;
+        }
+
+        .step-description {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #111111;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.25);
+        }
+
+        .highlight-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .document-list {
+            background: #f8f8f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #000000;
+        }
+
+        .document-list h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .document-list ol, .document-list ul {
+            padding-left: 20px;
+        }
+
+        .document-list li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .sigilo {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .step-highlight {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .step-highlight h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .important-note {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.25);
+        }
+
+        .important-note h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-button:hover { 
+            transform: translateY(-1px); 
+            background: #111111; 
+        }
+
+        .site-footer {
+            text-align: center;
+            background: #000000;
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                margin: 1rem 0 0 0;
+            }
+
+            .header-title h1 {
+                font-size: 1.4rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .step-header {
+                padding: 15px 20px;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+            }
+
+            .step-content {
+                padding: 20px;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title h1 {
+                font-size: 1.2rem;
+            }
+
+            .step-header {
+                padding: 12px 15px;
+            }
+
+            .step-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../assets/logo dolejal.png" alt="Dolejal" class="logo">
+                <div class="header-title">
+                    <h1>Manual de Agravo</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Conferir Nome do Cliente</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Verificar se o nome do cliente está correto e corresponde ao processo original.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Conferir Empreendimento</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Confirmar o empreendimento e utilizar o modelo específico daquele empreendimento.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Conferir Tipo de Ação</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Verificar se é rescisão contratual ou monitória para aplicar o procedimento correto.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Acessar Aba Agravo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Clicar na aba AGRAVO e continuar com o procedimento.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Preencher Valor da Causa</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Preencher o valor da causa igual ao da petição inicial e clicar em próxima.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Não Fechar Prazo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <strong>Importante:</strong> Não fechar o prazo aberto para o agravo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Marcar Decisão Agravada</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar a decisão que está sendo agravada no processo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <div class="step-title">Selecionar Matéria do Agravo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar a matéria do agravo conforme o caso:
+                </div>
+                <div class="document-list">
+                    <ul>
+                        <li>Competência territorial</li>
+                        <li>Justiça gratuita</li>
+                        <li>Liminar</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <h4>Procedimento:</h4>
+                    <p>Após selecionar a matéria → FILTRAR → INCLUIR</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">9</div>
+                <div class="step-title">Confirmar Agravante</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Confirmar dados do agravante e selecionar se tiver pedido de AJG (Assistência Judiciária Gratuita).
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">10</div>
+                <div class="step-title">Confirmar Nome do Réu</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Verificar e confirmar o nome correto do réu no agravo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">11</div>
+                <div class="step-title">Marcar Pedido de Liminar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Marcar o pedido de liminar se aplicável ao caso.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">12</div>
+                <div class="step-title">Marcar Juízo 100% Digital</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar a opção de juízo 100% digital.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">13</div>
+                <div class="step-title">Anexar Petição Inicial do Agravo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Anexar a petição inicial do agravo com as especificações corretas.
+                </div>
+                <div class="important-note">
+                    <h4>⚠️ Nomenclatura e Sigilo:</h4>
+                    <p>Nomear como <strong>"PETIÇÃO INICIAL"</strong> e <span class="sigilo">colocar em SIGILO</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">14</div>
+                <div class="step-title">Selecionar Documentos Novos</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar os documentos novos que acompanham o agravo conforme necessário.
+                </div>
+                <div class="document-list">
+                    <h4>Documentos que podem ser anexados:</h4>
+                    <ul>
+                        <li>Se pedido de AJG: anexar comprovantes</li>
+                        <li>Certidão de acórdãos paradigmas</li>
+                        <li>OUTROS - Lista de processos em Gramado</li>
+                        <li>Contrato social</li>
+                        <li>OUTROS - ACP do MP em defesa consumidores em Gramado</li>
+                        <li>OUTROS - Inicial da ACP do MP em defesa consumidores em Gramado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">15</div>
+                <div class="step-title">Confirmar e Finalizar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Confirmar a seleção de todos os documentos e finalizar o processo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">16</div>
+                <div class="step-title">Revisar e Confirmar Ajuizamento</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Revisar todas as informações e confirmar o ajuizamento do agravo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">17</div>
+                <div class="step-title">Gerar Custas</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Gerar a guia de custas para o agravo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">18</div>
+                <div class="step-title">Selecionar Pagante</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar quem irá pagar as custas do agravo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">19</div>
+                <div class="step-title">Gerar Guia</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Gerar a guia de custas e clicar em OK.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">20</div>
+                <div class="step-title">Salvar Guia de Depósito</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Salvar em PDF a guia de depósito com o nome do cliente.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">21</div>
+                <div class="step-title">Pagar Guia de Custas</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Pagar a guia de custas seguindo os procedimentos corretos.
+                </div>
+                <div class="step-highlight">
+                    <h4>⚠️ Procedimento de Pagamento:</h4>
+                    <ol>
+                        <li><strong>Escanear o QR code ou código de barras</strong></li>
+                        <li><strong>SELECIONAR PAGAMENTO IMEDIATO</strong></li>
+                        <li><strong>NÃO AGENDAR o pagamento</strong></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">22</div>
+                <div class="step-title">Salvar Comprovante</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Salvar o comprovante de pagamento com o nome do cliente.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">23</div>
+                <div class="step-title">Anexar no EPROC</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Anexar a guia e comprovante no EPROC do agravo através da movimentação.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">24</div>
+                <div class="step-title">Criar Evento</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Criar evento: "Guia de recolhimento depósito custas".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">25</div>
+                <div class="step-title">Upload de Arquivos</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Fazer upload dos arquivos necessários.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">26</div>
+                <div class="step-title">Anexar Documentos</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Anexar a guia de depósito e comprovante de pagamento de custas.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">27</div>
+                <div class="step-title">Confirmar e Priorizar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Confirmar a seleção e selecionar prioridade de antecipação de tutela.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">28</div>
+                <div class="step-title">Registrar na Planilha</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Enviar informações para registro na planilha de reembolsos.
+                </div>
+                <div class="document-list">
+                    <h4>Informações para registrar:</h4>
+                    <ul>
+                        <li>Nome do cliente</li>
+                        <li>Número do agravo</li>
+                        <li>Valor das custas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-footer">
+        <p>Dolejal Advocacia - Manual de Agravo</p>
+        <p>Atualizado em 2025 - Todos os direitos reservados</p>
+    </div>
+</body>
+</html>
