@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Apelação - Dolejal Advocacia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .header-title h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .step-container {
+            background: #ffffff;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .step-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-header {
+            background: #000000;
+            color: #ffffff;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            flex: 1;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .step-content {
+            padding: 30px;
+            display: block;
+        }
+
+        .step-description {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #111111;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.25);
+        }
+
+        .highlight-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .document-list {
+            background: #f8f8f8;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #000000;
+        }
+
+        .document-list h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .document-list ol, .document-list ul {
+            padding-left: 20px;
+        }
+
+        .document-list li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .sigilo {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .step-highlight {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .step-highlight h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .important-note {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.25);
+        }
+
+        .important-note h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-button:hover { 
+            transform: translateY(-1px); 
+            background: #111111; 
+        }
+
+        .site-footer {
+            text-align: center;
+            background: #000000;
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                margin: 1rem 0 0 0;
+            }
+
+            .header-title h1 {
+                font-size: 1.4rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .step-header {
+                padding: 15px 20px;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+            }
+
+            .step-content {
+                padding: 20px;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title h1 {
+                font-size: 1.2rem;
+            }
+
+            .step-header {
+                padding: 12px 15px;
+            }
+
+            .step-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../assets/logo dolejal.png" alt="Dolejal" class="logo">
+                <div class="header-title">
+                    <h1>Manual de Apelação</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Conferir Nome do Cliente</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Verificar se o nome do cliente está correto e corresponde ao processo original.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Conferir Empreendimento</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Confirmar o empreendimento e utilizar o modelo específico daquele empreendimento.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Acessar Aba Custas</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Clicar na aba CUSTAS e selecionar "Nova guia" para iniciar o processo de custas.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Selecionar Tipo de Pagamento</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar "Preparo de recurso" como tipo de pagamento.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Calcular Custas</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Clicar em "Calcular" para gerar o valor das custas do preparo de recurso.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Selecionar Pagante</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar o pagante como "Nome do cliente".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Gerar Guia</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Clicar em "GERAR" para criar a guia de custas.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <div class="step-title">Salvar Guia em PDF</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Salvar a guia em PDF com o nome do cliente.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">9</div>
+                <div class="step-title">Realizar Pagamento</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Realizar o pagamento da guia e salvar o comprovante em PDF.
+                </div>
+                <div class="step-highlight">
+                    <h4>⚠️ Importante:</h4>
+                    <p>Salvar o comprovante de pagamento com o nome do cliente para anexar posteriormente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">10</div>
+                <div class="step-title">Movimentar/Peticionar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Acessar a opção "Movimentar/Peticionar" no processo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">11</div>
+                <div class="step-title">Criar Evento Apelação</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar o evento "APELAÇÃO" para iniciar o processo de interposição.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">12</div>
+                <div class="step-title">Upload de Arquivos</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Fazer upload dos arquivos necessários para a apelação.
+                </div>
+                <div class="document-list">
+                    <h4>Arquivos para upload:</h4>
+                    <ul>
+                        <li>Arquivo inicial da apelação</li>
+                        <li>Guia de depósito</li>
+                        <li>Comprovante de custas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">13</div>
+                <div class="step-title">Nomear Apelação</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Nomear o arquivo principal como "APELAÇÃO" e colocar em sigilo.
+                </div>
+                <div class="important-note">
+                    <h4>⚠️ Nomenclatura e Sigilo:</h4>
+                    <p>Nomear como <strong>"APELAÇÃO"</strong> e <span class="sigilo">colocar em SIGILO</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">14</div>
+                <div class="step-title">Nomear Guia de Depósito</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Nomear o arquivo da guia como "GUIA DE DEPÓSITO".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">15</div>
+                <div class="step-title">Nomear Pagamento de Custas</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Nomear o comprovante como "PAGAMENTO DE CUSTAS".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">16</div>
+                <div class="step-title">Confirmar Seleção</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Confirmar a seleção de todos os documentos anexados.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">17</div>
+                <div class="step-title">Selecionar Prazo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar o prazo para FECHAR a apelação.
+                </div>
+                <div class="step-highlight">
+                    <h4>⚠️ Atenção ao Prazo:</h4>
+                    <p>Certifique-se de selecionar o prazo correto para fechamento da apelação.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">18</div>
+                <div class="step-title">Peticionar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Finalizar o processo clicando em "Peticionar" para enviar a apelação.
+                </div>
+                <div class="highlight-box">
+                    <h4>✅ Finalização:</h4>
+                    <p>Após clicar em "Peticionar", a apelação será enviada ao sistema e o processo estará concluído.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-footer">
+        <p>Dolejal Advocacia - Manual de Apelação</p>
+        <p>Atualizado em 2025 - Todos os direitos reservados</p>
+    </div>
+</body>
+</html>
