@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Réplica - Dolejal Advocacia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .header-title h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .manual-intro {
+            background: #000000;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .manual-intro h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .manual-intro p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .step-container {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .step-header {
+            background: #000000;
+            color: white;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .step-number {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .step-content {
+            padding: 30px;
+        }
+
+        .step-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #000000;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-box strong {
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .document-list {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .document-list h4 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .document-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .document-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .document-list li:before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        .document-list li:last-child {
+            border-bottom: none;
+        }
+
+        .important-note {
+            background: #f8f9fa;
+            border: 1px solid #000000;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .important-note strong {
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .sigilo {
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .site-footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .site-footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                margin: 1rem 0 0 0;
+            }
+
+            .header-title h1 {
+                font-size: 1.4rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .step-content {
+                padding: 20px;
+            }
+
+            .manual-intro {
+                padding: 1.5rem;
+            }
+
+            .manual-intro h2 {
+                font-size: 1.3rem;
+            }
+
+            .manual-intro p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title h1 {
+                font-size: 1.2rem;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+            }
+
+            .step-description {
+                font-size: 0.95rem;
+            }
+
+            .manual-intro h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../assets/logo dolejal.png" alt="Dolejal" class="logo">
+                <div class="header-title">
+                    <h1>Manual de Réplica</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="manual-intro">
+            <h2>Protocolo de Réplica</h2>
+            <p>Guia completo para protocolo de réplica no sistema EPROC, incluindo verificação de documentos, anexação de peças e procedimentos de sigilo.</p>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Revisar Contrato Anexado</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Verificar se o contrato está anexado na petição inicial ou se foi solicitada a juntada pela requerida.
+                </div>
+                <div class="highlight-box">
+                    <strong>Importante:</strong> Se o contrato não estiver anexado, deve ser solicitada a juntada ou anexado com a réplica.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Revisar Documentos Essenciais</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Verificar se foram juntados com a inicial os seguintes documentos:
+                </div>
+                <div class="document-list">
+                    <h4>Documentos Obrigatórios:</h4>
+                    <ul>
+                        <li>Matrícula do imóvel</li>
+                        <li>Certidão de extinção de afetação</li>
+                        <li>Habite-se</li>
+                        <li>Informação sobre ACP (Ação Civil Pública)</li>
+                        <li>Outros documentos necessários para o caso</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Anexar Documentos Faltantes</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Se algum documento estiver faltando, anexar com a réplica.
+                </div>
+                <div class="important-note">
+                    <strong>Atenção:</strong> Todos os documentos anexados com a réplica devem ser colocados em sigilo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Movimentar/Peticionar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Acessar a opção de movimentar/peticionar no sistema EPROC.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Selecionar Evento: Réplica</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar o evento "Réplica" na lista de eventos disponíveis.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Upload e Nomear Réplica</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Fazer upload do arquivo da réplica e nomear como <span class="sigilo">"RÉPLICA SIGILOSO"</span>.
+                </div>
+                <div class="highlight-box">
+                    <strong>Lembrete:</strong> O arquivo deve ser nomeado exatamente como "RÉPLICA SIGILOSO" para manter a consistência.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Anexar Documentos com Sigilo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Anexar os documentos faltantes identificados no passo 3, todos com sigilo.
+                </div>
+                <div class="document-list">
+                    <h4>Documentos a serem anexados com sigilo:</h4>
+                    <ul>
+                        <li>Contrato (se não estava na inicial)</li>
+                        <li>Matrícula (se faltante)</li>
+                        <li>Certidão de extinção de afetação (se faltante)</li>
+                        <li>Habite-se (se faltante)</li>
+                        <li>Informação sobre ACP (se faltante)</li>
+                        <li>Outros documentos necessários</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <div class="step-title">Confirmar Seleção de Documentos</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Revisar e confirmar a seleção de todos os documentos que serão anexados com a réplica.
+                </div>
+                <div class="important-note">
+                    <strong>Verificação Final:</strong> Certifique-se de que todos os documentos necessários estão selecionados antes de prosseguir.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">9</div>
+                <div class="step-title">Selecionar Prazo para Fechar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar o prazo adequado para fechar o processo, considerando a complexidade do caso e os documentos anexados.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">10</div>
+                <div class="step-title">Protocolar</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Finalizar o protocolo da réplica no sistema EPROC.
+                </div>
+                <div class="highlight-box">
+                    <strong>Concluído:</strong> A réplica foi protocolada com sucesso, incluindo todos os documentos necessários em sigilo.
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer">
+            <p>Dolejal Advocacia - Manual de Réplica | 2025 - Todos os direitos reservados</p>
+        </div>
+    </div>
+</body>
+</html>
