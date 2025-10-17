@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Protocolo Cumprimento Provisório-Definitivo Sentença</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .header-title h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header-title p {
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+
+        .manual-intro {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+
+        .manual-intro h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .manual-intro p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step-container {
+            background: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-header {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            flex: 1;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .step-content {
+            padding: 30px;
+        }
+
+        .step-description {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #000000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .document-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .document-list h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .document-list ol {
+            margin-left: 1.5rem;
+        }
+
+        .document-list li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .important-note h4 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .important-note ul {
+            margin-left: 1.5rem;
+        }
+
+        .important-note li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .sigilo {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .step-images {
+            margin-top: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .step-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .site-footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-radius: 12px;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #000000;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: #333333;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                margin: 10px 0;
+            }
+
+            .header-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../assets/logo dolejal.png" alt="Dolejal Advocacia" class="logo">
+                <div class="header-title">
+                    <h1>Manual de Protocolo Cumprimento Provisório-Definitivo Sentença</h1>
+                    <p>Guia completo para protocolo de cumprimento de sentença</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Voltar ao Portal de Manuais</a>
+
+        <div class="manual-intro">
+            <h2>Protocolo de Cumprimento Provisório-Definitivo de Sentença</h2>
+            <p>Este manual apresenta o passo a passo completo para protocolo de cumprimento de sentença no sistema EPROC, incluindo todas as etapas desde a abertura do processo até a finalização.</p>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Abrir o processo de origem no EPROC</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Acesse o sistema EPROC e localize o processo de origem que deu origem à sentença que será cumprida.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Abrir a página de 'petição inicial' em outra aba</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Abra uma nova aba no navegador e acesse a página de petição inicial do sistema EPROC para iniciar o protocolo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Preencher competência (foro de origem)</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    No campo "Desejo entrar com a ação em:", selecione o foro de origem (ex: Gramado).
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Selecionar rito processual</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecione "Rito ordinário (comum)" ou "Juizado Especial" conforme o caso.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Definir área processual</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecione "Cível" como área processual.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Selecionar classe processual</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecione "Cumprimento (Provisório ou Definitivo) de Sentença" como classe processual.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Definir nível de sigilo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecione "Sem sigilo" (Nível 0) para processos sem restrição de acesso.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <div class="step-title">Inserir número do processo originário</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Copie e cole o número completo do processo de origem no campo "Processo Originário".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">9</div>
+                <div class="step-title">Preencher valor da causa</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Indique o valor total que consta na petição do cumprimento, conferindo também o cálculo. Clique em "Próxima >".
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem1 Manual protocolo9.png" alt="Preencher valor da causa" class="step-image">
+                        <p class="image-caption">Preenchimento do valor da causa no sistema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">10</div>
+                <div class="step-title">Selecionar assunto principal</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Navegue em: Direito Civil → Coisas → Promessa de Compra e Venda. Clique em "Incluir".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">11</div>
+                <div class="step-title">Definir competência</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecione "Cível - Geral" como competência.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">12</div>
+                <div class="step-title">Selecionar assunto secundário</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Navegue em: Direito do Consumidor → Responsabilidade do fornecedor → Rescisão do contrato e devolução do dinheiro. Clique em "Incluir" e depois "Próxima >".
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem12 Manual.png" alt="Selecionar assunto secundário" class="step-image">
+                        <p class="image-caption">Seleção do assunto secundário no sistema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">13</div>
+                <div class="step-title">Preencher CPF do exequente</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Preencha o CPF do exequente → consultar → principal 'sim' → incluir.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">14</div>
+                <div class="step-title">Selecionar pedido de justiça gratuita</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecione se há pedido de justiça gratuita ou não para o exequente.
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem14 Manual Protocolo.png" alt="Selecionar pedido de justiça gratuita" class="step-image">
+                        <p class="image-caption">Seleção do pedido de justiça gratuita</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">15</div>
+                <div class="step-title">Preencher CNPJ do executado</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Preencha o CNPJ do executado → principal 'sim' → incluir → Próxima >.
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem15 Manual.png" alt="Preencher CNPJ do executado" class="step-image">
+                        <p class="image-caption">Preenchimento do CNPJ do executado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">16</div>
+                <div class="step-title">Selecionar juízo 100% digital</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Marque a opção "Opção por Juízo 100% Digital".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">17</div>
+                <div class="step-title">Fazer upload dos documentos</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Faça upload dos seguintes documentos:
+                </div>
+                <div class="document-list">
+                    <h4>Documentos Necessários:</h4>
+                    <ol>
+                        <li>Petição inicial do cumprimento de sentença</li>
+                        <li>Cálculo atualizado</li>
+                        <li>Procuração assinada</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">18</div>
+                <div class="step-title">Colocar arquivos em sigilo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Colocar todos os arquivos em <span class="sigilo">SIGILO (segredo de justiça)</span>.
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem18 Manual.png" alt="Colocar arquivos em sigilo" class="step-image">
+                        <p class="image-caption">Configuração de sigilo dos arquivos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">19</div>
+                <div class="step-title">Confirmar seleção de documentos</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Revise todos os documentos anexados e clique em "Confirmar seleção de documentos".
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">20</div>
+                <div class="step-title">Finalizar protocolo</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Clique em "Finalizar" para concluir o protocolo.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">21</div>
+                <div class="step-title">Revisar informações e confirmar ajuizamento</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Revise todas as informações do processo e confirme o ajuizamento.
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem21 Manual.png" alt="Revisar informações e confirmar ajuizamento" class="step-image">
+                        <p class="image-caption">Revisão das informações do processo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">22</div>
+                <div class="step-title">Emitir guia de custas iniciais</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Emitir a guia de custas iniciais do cumprimento de sentença: Clique em "Gerar Custas".
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem22 Manual.png" alt="Emitir guia de custas iniciais" class="step-image">
+                        <p class="image-caption">Geração da guia de custas iniciais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">23</div>
+                <div class="step-title">Selecionar AR Digital</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar 1 AR Digital para citação do executado.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">24</div>
+                <div class="step-title">Selecionar o pagante</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Selecionar o pagante (nome do exequente) e configurar as opções de pagamento.
+                </div>
+                <div class="step-images">
+                    <div class="image-container">
+                        <img src="../assets/Manual de distribuicao.fld/Manual de Protocolo Cumprimento/Imagem24 manual.png" alt="Selecionar o pagante" class="step-image">
+                        <p class="image-caption">Seleção do pagante e configuração de custas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">25</div>
+                <div class="step-title">Gerar custas</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Clique em "Gerar" e depois "OK" para gerar a guia de custas.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="step-header">
+                <div class="step-number">26</div>
+                <div class="step-title">Salvar guia de custas em PDF</div>
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    Salvar em PDF, nomear como "guia de custas + nome exequente + fase de pagamento + valor bruto do cliente (sem honorários de sucumbência)" e enviar para o setor de atendimento.
+                </div>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <h4>⚠️ Observações Importantes:</h4>
+            <ul>
+                <li>A execução de título judicial ou cumprimento de sentença, quando autuada em apartado, terá o mesmo assunto do processo principal (fase de conhecimento).</li>
+                <li>Verifique sempre se o valor da causa está correto antes de prosseguir.</li>
+                <li>Mantenha todos os documentos organizados e nomeados adequadamente.</li>
+                <li>Confirme se todos os campos obrigatórios foram preenchidos antes de finalizar.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Dolejal Advocacia - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>
