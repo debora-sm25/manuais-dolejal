@@ -152,6 +152,45 @@
             color: #555;
         }
 
+        .link-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-button:hover { 
+            transform: translateY(-1px); 
+            background: #111111; 
+        }
+
+        .back-button {
+            display: block;
+            background: #000000;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-1px);
+            background: #111111;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
         .example {
             background-color: #f9f9f9;
             border: 1px solid #ddd;
@@ -205,11 +244,23 @@
             .substep {
                 padding-left: 0.5rem;
             }
+
+            .back-button {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+                margin-bottom: 25px;
+            }
         }
 
         @media (max-width: 480px) {
             .header-title h1 {
                 font-size: 1.2rem;
+            }
+
+            .back-button {
+                font-size: 0.85rem;
+                padding: 8px 15px;
+                margin-bottom: 20px;
             }
 
             .step-header {
@@ -256,7 +307,7 @@
 
     <main>
         <div class="container">
-            <a href="../index.html" class="link-button" style="display: block; margin-bottom: 30px; text-align: center;">← Voltar ao Portal de Manuais</a>
+            <a href="../index.html" class="back-button">← Voltar ao Portal de Manuais</a>
 
             <div class="step">
                 <div class="step-header">
